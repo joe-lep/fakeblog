@@ -1,10 +1,10 @@
 import React from 'react';
-import Layout from './layout';
+import Routing from './Routing';
 
 const App = () => {
   return (
     <div className="App">
-      <Layout />
+      <Routing />
     </div>
   );
 }
