@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Button } from '@mui/material';
 
 import PageHeader from '../../components/PageHeader';
 import { CREATE_PROFILE_ROUTE } from '../../config/routeData';
@@ -13,9 +14,9 @@ export const ProfileList : React.FC = () => {
   return (
     <div>
       <PageHeader title="Profile List">
-        <button type="button" onClick={onNewProfileClick}>
+        <Button onClick={onNewProfileClick}>
           New Profile
-        </button>
+        </Button>
       </PageHeader>
     </div>
   );
