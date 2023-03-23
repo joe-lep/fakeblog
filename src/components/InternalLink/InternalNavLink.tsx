@@ -9,6 +9,8 @@ type Props = Omit<NavLinkProps, 'to'> & {
 
 export const InternalNavLink : React.FC<Props> = ({ routeData, ...props }) => {
   return (
-    <NavLink to={routeData.path} {...props} />
+    <NavLink to={routeData.path} {...props}>
+      {routeData.label}
+    </NavLink>
   );
 };

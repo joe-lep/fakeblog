@@ -8,9 +8,10 @@ export const Navigation : React.FC = () => {
     <nav>
       <ul>
         <li>
-          <InternalNavLink routeData={routeData.MY_PROFILE_ROUTE}>
-             My Profile
-          </InternalNavLink>
+          <InternalNavLink routeData={routeData.MY_PROFILE_ROUTE} />
+        </li>
+        <li>
+          <InternalNavLink routeData={routeData.PROFILE_LIST_ROUTE} />
         </li>
       </ul>
     </nav>
