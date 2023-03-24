@@ -15,9 +15,6 @@ export const ControlledTextField : React.FC<Props> = ({
   ...props
 }) => {
   const render = useCallback(({ field, fieldState } : { field : ControllerRenderProps<FieldValues, string>, fieldState : ControllerFieldState }) => {
-    console.log('field', field);
-    console.log('fieldState', fieldState);
-
     return (
       <TextField
         {...field}
