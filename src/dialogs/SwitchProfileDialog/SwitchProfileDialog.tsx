@@ -1,7 +1,7 @@
 import React, { useCallback, useMemo } from 'react';
 import { useForm, FieldValues } from 'react-hook-form';
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/material';
-import { useDialogControls } from '../../components/DialogManager';
+import { useDialogControls } from '@joe-lep/react-dialog-manager';
 import { useDispatch, useSelector } from '../../store/hooks';
 import { useProfilesQuery } from '../../api/useProfilesQuery';
 import { ControlledSelect } from '../../components/ControlledFields';

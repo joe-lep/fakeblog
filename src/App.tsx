@@ -3,7 +3,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { QueryClientProvider, QueryClient } from 'react-query';
 import Routing from './Routing';
 import ReduxProvider from './providers/ReduxProvider';
-import { DialogManager } from './components/DialogManager';
+import { DialogManager } from '@joe-lep/react-dialog-manager';
 
 const queryClient = new QueryClient();
 

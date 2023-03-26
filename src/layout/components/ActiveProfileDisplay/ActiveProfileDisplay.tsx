@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { useDialogManager } from '../../../components/DialogManager';
+import { useDialogManager } from '@joe-lep/react-dialog-manager';
 
 import OptionsMenu from '../../../components/OptionsMenu';
 import SwitchProfileDialog from '../../../dialogs/SwitchProfileDialog';
