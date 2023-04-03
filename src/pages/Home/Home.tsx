@@ -1,9 +1,10 @@
 import React from 'react';
+import { PostFeedDisplay } from '../../components/PostFeedDisplay/PostFeedDisplay';
 
 export const Home : React.FC = () => {
   return (
     <div>
-      <p>Home Page</p>
+      <PostFeedDisplay />
     </div>
   );
 };

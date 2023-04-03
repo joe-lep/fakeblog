@@ -12,8 +12,8 @@ type Props = {
   onClose: () => void;
 }
 
-export const SwitchProfileDialog : React.FC<Props> = ({open, onClose}) => {
-  const { dialogSubmit } = useDialogControls();
+export const SwitchProfileDialog : React.FC<Props> = () => {
+  const { dialogSubmit, dialogClose, open } = useDialogControls();
   const activeUserId = useSelector(state => state.activeProfile.profileId);
   const dispatch = useDispatch();
   const profilesQuery = useProfilesQuery();
@@ -40,7 +40,7 @@ export const SwitchProfileDialog : React.FC<Props> = ({open, onClose}) => {
   }, [profilesQuery]);
 
   return (
-    <Dialog open={open} onClose={onClose}>
+    <Dialog open={open} onClose={dialogClose}>
       <DialogTitle>Switch Profile</DialogTitle>
       <form onSubmit={handleSubmit(submitSuccess)}>
         <DialogContent>
@@ -53,7 +53,7 @@ export const SwitchProfileDialog : React.FC<Props> = ({open, onClose}) => {
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={onClose}>Close</Button>
+          <Button onClick={dialogClose}>Close</Button>
           <Button type="submit">Confirm</Button>
         </DialogActions>
       </form>
