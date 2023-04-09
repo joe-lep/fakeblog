@@ -5,7 +5,7 @@ export const openDb = () => {
   return new Promise<IDBDatabase>((resolve, reject) => {
     const request = window.indexedDB.open(FAKEBLOG_DB_NAME, FAKEBLOG_DB_VERSION);
 
-    request.onupgradeneeded = () => upgradeDb(request);
+    request.onupgradeneeded = (event) => upgradeDb(request, event.oldVersion);
 
     request.onerror = () => {
       reject(new Error(`IndexedDB Error: ${request.error}`));

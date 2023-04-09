@@ -1,3 +1,4 @@
+import { DialogManager } from '@joe-lep/react-dialog-manager';
 import React from 'react';
 import { BrowserRouter, Routes, Route, RouteProps } from 'react-router-dom';
 
@@ -17,17 +18,19 @@ const parseRoute = (routeData : RouteData, props : RouteProps) => (
 
 const Routing : React.FC = () => {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          {parseRoute(routeData.MY_PROFILE_ROUTE, { element: (<MyProfile />) })}
-          {parseRoute(routeData.PROFILE_LIST_ROUTE, {element: (<ProfileList />) })}
-          {parseRoute(routeData.CREATE_PROFILE_ROUTE, {element: (<NewProfile />) })}
-          {parseRoute(routeData.CREATE_NEW_POST, { element: (<CreatePostPage />) })}
-          {parseRoute(routeData.PROFILE_BY_ID_ROUTE, { element: (<ProfilePage />) })}
-        </Route>
-      </Routes>
+    <BrowserRouter basename="/fakeblog">
+      <DialogManager>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            {parseRoute(routeData.MY_PROFILE_ROUTE, { element: (<MyProfile />) })}
+            {parseRoute(routeData.PROFILE_LIST_ROUTE, {element: (<ProfileList />) })}
+            {parseRoute(routeData.CREATE_PROFILE_ROUTE, {element: (<NewProfile />) })}
+            {parseRoute(routeData.CREATE_NEW_POST, { element: (<CreatePostPage />) })}
+            {parseRoute(routeData.PROFILE_BY_ID_ROUTE, { element: (<ProfilePage />) })}
+          </Route>
+        </Routes>
+      </DialogManager>
     </BrowserRouter>
   );
 };
