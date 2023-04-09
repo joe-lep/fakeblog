@@ -2,7 +2,7 @@
   "name": "fakeblog",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://joe-lep.github.io/fakeblog",
+  "homepage": "https://joe-lep.github.io/fakeblog/",
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
