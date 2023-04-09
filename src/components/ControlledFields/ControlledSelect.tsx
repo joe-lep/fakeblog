@@ -45,7 +45,7 @@ export const ControlledSelect : React.FC<Props> = ({
     const errorMessage = parseErrorMessage(fieldState.error);
     
     return (
-      <FormControl error={Boolean(fieldState.error)} {...props}>
+      <FormControl error={Boolean(fieldState.error)} fullWidth {...props}>
         <InputLabel id={labelId}>{label}</InputLabel>
         <Select
           id={selectId}

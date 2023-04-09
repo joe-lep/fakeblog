@@ -1,16 +1,15 @@
 import React from 'react';
+import { Typography } from '@mui/material';
 
 import { InternalLink } from '../../../components/InternalLink';
-import * as routeData from '../../../config/routeData';
+import { HOME_ROUTE } from '../../../config/routeData';
 
 export const Header = () => {
   return (
-    <header>
-      <h1>
-        <InternalLink routeData={routeData.HOME_ROUTE}>
+    <InternalLink color="inherit" routeData={HOME_ROUTE}>
+      <Typography variant="h1">
           Fake Blog
-        </InternalLink>
-      </h1>
-    </header>
+      </Typography>
+    </InternalLink>
   );
 };

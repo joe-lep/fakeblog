@@ -1,16 +1,18 @@
 import React from 'react';
-import { NavLink, NavLinkProps } from 'react-router-dom';
+import { Link } from '@mui/material'
+import { NavLink, LinkProps } from 'react-router-dom';
 
 import { RouteData } from '../../types';
 
-type Props = Omit<NavLinkProps, 'to'> & {
+type Props = Omit<LinkProps, 'to'> & {
   routeData: RouteData;
+  routeParams?: any;
 };
 
 export const InternalNavLink : React.FC<Props> = ({ routeData, ...props }) => {
   return (
-    <NavLink to={routeData.path} {...props}>
+    <Link component={NavLink} to={routeData.path} {...props}>
       {routeData.label}
-    </NavLink>
+    </Link>
   );
 };

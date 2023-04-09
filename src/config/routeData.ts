@@ -24,3 +24,8 @@ export const CREATE_NEW_POST : RouteData = {
   path: '/create-post',
   label: 'Create New Post',
 };
+
+export const PROFILE_BY_ID_ROUTE : RouteData = {
+  path: `${PROFILE_LIST_ROUTE.path}/:profileId`,
+  label: 'Profile',
+};

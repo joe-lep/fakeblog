@@ -1,19 +1,19 @@
 import React from 'react';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
 import { QueryClientProvider, QueryClient } from 'react-query';
 import Routing from './Routing';
 import ReduxProvider from './providers/ReduxProvider';
 import { DialogManager } from '@joe-lep/react-dialog-manager';
 
-const queryClient = new QueryClient();
+import { defaultTheme } from './themes';
 
-const theme = createTheme();
+const queryClient = new QueryClient();
 
 const App = () => {
   return (
     <div className="App">
       <QueryClientProvider client={queryClient}>
-        <ThemeProvider theme={theme}>
+        <ThemeProvider theme={defaultTheme}>
           <ReduxProvider>
             <DialogManager>
               <Routing />

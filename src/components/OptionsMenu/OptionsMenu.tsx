@@ -1,4 +1,4 @@
-import React, { ReactNode, useId, useCallback, useMemo } from 'react';
+import React, { ReactNode, useId, useCallback, useMemo, ComponentType } from 'react';
 import { Button, Menu, MenuItem } from '@mui/material';
 import { RouteData } from '../../types';
 import { InternalLink } from '../InternalLink';
@@ -8,14 +8,18 @@ type MenuOption = {
   label: ReactNode;
   action?: () => void;
   routeData?: RouteData;
+  pathParams?: any;
 }
 
 type Props = {
   label?: ReactNode,
   options?: Array<MenuOption>;
+  ButtonComponent?: ComponentType<any>;
+  buttonProps?: any;
+  menuProps?: any;
 };
 
-export const OptionsMenu : React.FC<Props> = ({label = 'Options', options}) => {
+export const OptionsMenu : React.FC<Props> = ({label = 'Options', options, ButtonComponent = Button, buttonProps, menuProps}) => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 
@@ -36,37 +40,46 @@ export const OptionsMenu : React.FC<Props> = ({label = 'Options', options}) => {
       return [];
     }
 
-    return options.map(item => (
-      <MenuItem
-        key={item.id}
-        onClick={() => {
-          if (item.action) {
-            item.action();
-          }
+    return options.map(item => {
+      const menuItem = (
+        <MenuItem
+          key={item.id}
+          onClick={() => {
+            if (item.action) {
+              item.action();
+            }
 
-          handleClose();
-        }}
-      >
-        {item.routeData ? (
-          <InternalLink routeData={item.routeData}>
-            {item.label}
+            handleClose();
+          }}
+        >
+          {item.label}
+        </MenuItem>
+      );
+
+      if (item.routeData) {
+        return (
+          <InternalLink routeData={item.routeData} pathParams={item.pathParams} color="inherit">
+            {menuItem}
           </InternalLink>
-        ) : item.label}
-      </MenuItem>
-    ))
+        )
+      }
+
+      return menuItem;
+    });
   }, [options, handleClose]);
 
   return (
     <div>
-      <Button
+      <ButtonComponent
         id={BUTTON_ID}
         aria-controls={MENU_ID}
         aria-haspopup="true"
         aria-expanded={open ? 'true' : undefined}
         onClick={handleClick}
+        {...buttonProps}
       >
         {label}
-      </Button>
+      </ButtonComponent>
       <Menu
         id={MENU_ID}
         anchorEl={anchorEl}
@@ -75,6 +88,7 @@ export const OptionsMenu : React.FC<Props> = ({label = 'Options', options}) => {
         MenuListProps={{
           'aria-labelledby': BUTTON_ID,
         }}
+        {...menuProps}
       >
         {renderedOptions}
       </Menu>

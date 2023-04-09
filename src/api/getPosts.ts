@@ -1,9 +1,10 @@
 import { getAllPosts } from './idb/getAllPosts';
+import { getPostsByAuthorId } from './idb/getPostsByAuthorId';
 
 export const getPosts = (authorId : number | undefined) => {
   if (authorId == null) {
     return getAllPosts();
   }
 
-  return Promise.resolve([]);
+  return getPostsByAuthorId(authorId);
 };
