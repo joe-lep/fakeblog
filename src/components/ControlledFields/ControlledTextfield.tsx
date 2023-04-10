@@ -21,6 +21,7 @@ export const ControlledTextField : React.FC<Props> = ({
         {...props}
         error={Boolean(fieldState.error)}
         helperText={parseErrorMessage(fieldState.error)}
+        fullWidth
       />
     );
   }, [props]);

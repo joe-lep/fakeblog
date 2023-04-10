@@ -1,38 +1,37 @@
 import React, { useCallback, useMemo } from 'react';
-import { useForm, FieldValues } from 'react-hook-form';
+import { FieldValues, useForm } from 'react-hook-form';
 import { Grid } from '@mui/material';
-
-import { UserPost, UserPostInput } from '../../types/UserPost';
+import { Profile, ProfilePayload } from '../../types';
 import { ControlledTextField } from '../../components/ControlledFields';
 
 type Props = Omit<JSX.IntrinsicElements['form'], 'onSubmit'> & {
-  existingPost?: UserPost;
-  onSubmit: (values: UserPostInput) => any;
+  existingProfile?: Profile;
+  onSubmit: (values: ProfilePayload) => any;
 };
 
 const emptyValues : FieldValues = {
-  title: '',
-  body: '',
+  name: '',
+  bio: '',
 };
 
-export const UserPostForm : React.FC<Props> = ({ existingPost, onSubmit, ...props }) => {
+export const ProfileForm : React.FC<Props> = ({ existingProfile, onSubmit, ...props }) => {
   const defaultValues : FieldValues = useMemo(() => {
-    if (existingPost) {
+    if (existingProfile) {
       return {
-        title: existingPost.title,
-        body: existingPost.body,
+        title: existingProfile.name,
+        bio: existingProfile.bio,
       };
     }
 
     return emptyValues;
-  }, [existingPost]);
+  }, [existingProfile]);
 
   const { control, handleSubmit } = useForm({ defaultValues })
 
   const parseSubmission = useCallback((values: FieldValues) => {
-    const parsedValues : UserPostInput = {
-      title: values.title,
-      body: values.body,
+    const parsedValues : ProfilePayload = {
+      name: values.name,
+      bio: values.bio,
     };
 
     onSubmit(parsedValues);
@@ -40,23 +39,22 @@ export const UserPostForm : React.FC<Props> = ({ existingPost, onSubmit, ...prop
 
   return (
     <form {...props} onSubmit={handleSubmit(parseSubmission)}>
-      <Grid container spacing={3}>
+      <Grid container spacing={2}>
         <Grid item xs={12}>
           <ControlledTextField
-            name="title"
+            name="name"
             control={control}
             rules={{ required: true }}
-            label="Title"
+            label="User Name"
           />
         </Grid>
         <Grid item xs={12}>
           <ControlledTextField
-            name="body"
+            name="bio"
             control={control}
-            rules={{ required: true }}
-            label="Body"
+            label="Bio"
             multiline
-            rows={16}
+            rows={6}
           />
         </Grid>
       </Grid>
