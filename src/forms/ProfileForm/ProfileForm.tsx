@@ -18,7 +18,7 @@ export const ProfileForm : React.FC<Props> = ({ existingProfile, onSubmit, ...pr
   const defaultValues : FieldValues = useMemo(() => {
     if (existingProfile) {
       return {
-        title: existingProfile.name,
+        name: existingProfile.name,
         bio: existingProfile.bio,
       };
     }

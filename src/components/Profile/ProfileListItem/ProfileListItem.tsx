@@ -7,7 +7,7 @@ import { Profile } from '../../../types';
 import { useDispatch } from '../../../store/hooks';
 import { setActiveProfile } from '../../../store/reducers/activeProfile';
 import UserNameDisplay from '../../UserNameDisplay';
-import { PROFILE_BY_ID_ROUTE } from '../../../config/routeData';
+import { PROFILE_BY_ID_ROUTE, PROFILE_EDIT_ROUTE } from '../../../config/routeData';
 
 type Props = {
   profile: Profile;
@@ -37,7 +37,13 @@ export const ProfileListItem : React.FC<Props> = ({ profile }) => {
               id: 'setActiveProfile',
               label: 'Set as Active Profile',
               action: setProfileAsActive,
-            }
+            },
+            {
+              id: 'editProfile',
+              label: 'Edit Profile',
+              routeData: PROFILE_EDIT_ROUTE,
+              pathParams: { profileId: `${profile.id}` },
+            },
           ]}
         />
       </Stack>
