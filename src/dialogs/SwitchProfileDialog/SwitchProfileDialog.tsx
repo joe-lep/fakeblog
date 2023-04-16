@@ -15,7 +15,7 @@ type Props = {
 }
 
 export const SwitchProfileDialog : React.FC<Props> = () => {
-  const { dialogSubmit, dialogClose, open } = useDialogControls();
+  const { submitDialog, closeDialog, open } = useDialogControls();
   const activeUserId = useSelector(state => state.activeProfile.profileId);
   const dispatch = useDispatch();
   const profilesQuery = useProfilesQuery();
@@ -27,8 +27,8 @@ export const SwitchProfileDialog : React.FC<Props> = () => {
 
   const submitSuccess = useCallback((values : FieldValues) => {
     dispatch(setActiveProfile({ profileId: values.activeUserId }));
-    dialogSubmit(values.activeUserId);
-  }, [dialogSubmit, dispatch]);
+    submitDialog(values.activeUserId);
+  }, [submitDialog, dispatch]);
 
   const profileOptions = useMemo(() => {
     if (!profilesQuery.isSuccess) {
@@ -79,15 +79,15 @@ export const SwitchProfileDialog : React.FC<Props> = () => {
           </Grid>
         </DialogContent>
         <DialogActions>
-          <Button onClick={dialogClose}>Close</Button>
+          <Button onClick={closeDialog}>Close</Button>
           <Button type="submit">Confirm</Button>
         </DialogActions>
       </form>
     )
-  }, [profilesQuery, control, profileOptions, dialogClose, handleSubmit, submitSuccess])
+  }, [profilesQuery, control, profileOptions, closeDialog, handleSubmit, submitSuccess])
 
   return (
-    <Dialog open={open} onClose={dialogClose} fullWidth>
+    <Dialog open={open} onClose={closeDialog} fullWidth>
       <DialogTitle>Select Profile</DialogTitle>
       {content}
     </Dialog>

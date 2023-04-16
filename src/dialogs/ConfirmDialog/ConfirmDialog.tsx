@@ -9,18 +9,18 @@ type Props = {
 }
 
 export const ConfirmDialog : React.FC<Props> = ({ message, confirmLabel = 'OK', cancelLabel = 'Cancel' }) => {
-  const { open, dialogClose, dialogSubmit } = useDialogControls();
+  const { open, closeDialog, submitDialog } = useDialogControls();
 
   return (
-    <Dialog open={open} onClose={dialogClose} maxWidth="xs">
+    <Dialog open={open} onClose={closeDialog} maxWidth="xs">
       <DialogContent>
         {message}
       </DialogContent>
       <DialogActions>
-        <Button onClick={dialogClose}>
+        <Button onClick={closeDialog}>
           {cancelLabel}
         </Button>
-        <Button onClick={dialogSubmit}>
+        <Button onClick={submitDialog}>
           {confirmLabel}
         </Button>
       </DialogActions>
