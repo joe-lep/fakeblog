@@ -58,7 +58,7 @@ export const OptionsMenu : React.FC<Props> = ({label = 'Options', options, Butto
 
       if (item.routeData) {
         return (
-          <InternalLink routeData={item.routeData} pathParams={item.pathParams} color="inherit">
+          <InternalLink key={item.id} routeData={item.routeData} pathParams={item.pathParams} color="inherit">
             {menuItem}
           </InternalLink>
         )

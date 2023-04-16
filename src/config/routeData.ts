@@ -29,3 +29,8 @@ export const PROFILE_BY_ID_ROUTE : RouteData = {
   path: `${PROFILE_LIST_ROUTE.path}/:profileId`,
   label: 'Profile',
 };
+
+export const PROFILE_EDIT_ROUTE : RouteData = {
+  path: `${PROFILE_BY_ID_ROUTE.path}/edit`,
+  label: 'Edit Profile',
+};

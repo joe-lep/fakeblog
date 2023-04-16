@@ -12,7 +12,7 @@ export const PostFeedDisplay : React.FC<Props> = ({ authorId }) => {
   const renderedPosts = useMemo(() => {
     if (userPostsQuery.isSuccess && Array.isArray(userPostsQuery.data)) {
       return userPostsQuery.data.map(item => (
-        <PostDisplay postData={item} />
+        <PostDisplay key={Number(item.id)} postData={item} />
       ));
     }
 
