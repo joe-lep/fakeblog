@@ -12,6 +12,7 @@ import ProfilePage from './pages/profile';
 import ProfileList from './pages/profile-list';
 import { RouteData } from './types';
 import EditProfilePage from './pages/edit-profile';
+import ViewPostPage from './pages/view-post';
 
 const parseRoute = (routeData : RouteData, props : RouteProps) => (
   <Route path={routeData.path} {...props} />
@@ -30,6 +31,7 @@ const Routing : React.FC = () => {
             {parseRoute(routeData.CREATE_NEW_POST, { element: (<CreatePostPage />) })}
             {parseRoute(routeData.PROFILE_BY_ID_ROUTE, { element: (<ProfilePage />) })}
             {parseRoute(routeData.PROFILE_EDIT_ROUTE, { element: (<EditProfilePage />)})}
+            {parseRoute(routeData.VIEW_POST_ROUTE, { element: (<ViewPostPage />)})}
           </Route>
         </Routes>
       </DialogManager>
