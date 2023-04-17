@@ -34,3 +34,13 @@ export const PROFILE_EDIT_ROUTE : RouteData = {
   path: `${PROFILE_BY_ID_ROUTE.path}/edit`,
   label: 'Edit Profile',
 };
+
+export const VIEW_POST_ROUTE : RouteData = {
+  path: '/post/:postId',
+  label: 'View Post',
+};
+
+export const EDIT_POST_ROUTE : RouteData = {
+  path: `${VIEW_POST_ROUTE.path}/edit`,
+  label: 'Edit Post',
+};

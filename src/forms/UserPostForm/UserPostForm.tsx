@@ -16,6 +16,8 @@ const emptyValues : FieldValues = {
 };
 
 export const UserPostForm : React.FC<Props> = ({ existingPost, onSubmit, ...props }) => {
+  const isEditMode = Boolean(existingPost);
+
   const defaultValues : FieldValues = useMemo(() => {
     if (existingPost) {
       return {
@@ -47,6 +49,7 @@ export const UserPostForm : React.FC<Props> = ({ existingPost, onSubmit, ...prop
             control={control}
             rules={{ required: true }}
             label="Title"
+            disabled={isEditMode}
           />
         </Grid>
         <Grid item xs={12}>
