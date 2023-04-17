@@ -85,6 +85,7 @@ export const OptionsMenu : React.FC<Props> = ({label = 'Options', options, Butto
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
+        keepMounted
         MenuListProps={{
           'aria-labelledby': BUTTON_ID,
         }}
