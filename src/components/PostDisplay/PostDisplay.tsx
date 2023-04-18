@@ -87,6 +87,7 @@ export const PostDisplay : React.FC<Props> = ({ postData }) => {
             ButtonComponent={IconButton}
             label={<MoreHorizIcon />}
             options={options}
+            buttonProps={{ 'aria-label': 'Show post options'}}
           />
         </Stack>
         <Divider />

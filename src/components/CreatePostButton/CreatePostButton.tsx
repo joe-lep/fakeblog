@@ -22,7 +22,7 @@ export const CreatePostButton : React.FC = () => {
         right: 32,
       }}
     >
-      <Fab color="primary">
+      <Fab color="primary" aria-label="Create New Post">
         <AddIcon />
       </Fab>
     </InternalLink>
