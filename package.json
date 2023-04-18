@@ -6,7 +6,7 @@
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
-    "@joe-lep/react-dialog-manager": "1.0.0-beta.1",
+    "@joe-lep/react-dialog-manager": "1.0.0",
     "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.11.14",
     "@reduxjs/toolkit": "^1.9.3",
