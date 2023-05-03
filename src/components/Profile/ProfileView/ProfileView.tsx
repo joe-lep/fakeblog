@@ -1,5 +1,7 @@
-import { Grid, Paper } from '@mui/material';
 import React from 'react';
+import { Grid, Paper } from '@mui/material';
+import ReactMarkdown from 'react-markdown';
+
 import { useProfileQuery } from '../../../api/useProfileQuery';
 import { PostFeedDisplay } from '../../PostFeedDisplay/PostFeedDisplay';
 import UserNameDisplay from '../../UserNameDisplay';
@@ -18,7 +20,9 @@ export const ProfileView : React.FC<Props> = ({ profileId }) => {
       </Grid>
       <Grid item xs={12}>
         <Paper>
-          {profileQuery?.data?.bio ?? 'This user does not have a bio'}
+          <ReactMarkdown>
+            {profileQuery?.data?.bio ?? 'This user does not have a bio'}
+          </ReactMarkdown>
         </Paper>
       </Grid>
       <Grid item xs={12}>
