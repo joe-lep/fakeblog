@@ -1,6 +1,7 @@
 import React, { useCallback, useMemo } from 'react';
 import { Divider, Paper, Stack, IconButton } from '@mui/material';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+import ReactMarkdown from 'react-markdown';
 
 import { useProfileQuery } from '../../api/useProfileQuery';
 import { UserPost } from '../../types/UserPost';
@@ -94,7 +95,9 @@ export const PostDisplay : React.FC<Props> = ({ postData }) => {
         <h3>{postData.title}</h3>
       </header>
       <div>
-        {postData.body}
+        <ReactMarkdown>
+          {postData.body}
+        </ReactMarkdown>
       </div>
     </Paper>
   );
